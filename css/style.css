@@ -1,0 +1,28 @@
+/* Main stylesheet that imports all component styles */
+
+/* Import global styles */
+@import url('global.css');
+
+/* Import component styles */
+@import url('header.css');
+@import url('hero-slider.css');
+@import url('ui-elements.css');
+@import url('admission-card.css');
+@import url('sections.css');
+@import url('footer.css');
+
+/* Any additional styles that don't fit in component files can be added here */
+body {
+    overflow-x: hidden;
+}
+
+/* Fix for components not displaying */
+#header-component, 
+#hero-banner-component, 
+#welcome-component, 
+#courses-component, 
+#testimonial-component, 
+#footer-component {
+    display: block;
+    width: 100%;
+}

@@ -1,0 +1,236 @@
+/* Modern Badge */
+.badge-modern {
+    display: inline-block;
+    padding: 0.5rem 1.2rem;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #fff;
+    margin-bottom: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.badge-success {
+    background: rgba(25, 135, 84, 0.2);
+    border: 1px solid rgba(25, 135, 84, 0.3);
+}
+
+.badge-purple {
+    background: rgba(111, 66, 193, 0.2);
+    border: 1px solid rgba(111, 66, 193, 0.3);
+}
+
+/* Buttons */
+.btn-gradient {
+    background: var(--gradient-primary);
+    border: none;
+    color: white;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 15px rgba(13, 110, 253, 0.3);
+}
+
+.btn-gradient:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    z-index: -1;
+}
+
+.btn-gradient:hover:before {
+    width: 100%;
+}
+
+.btn-gradient-purple {
+    background: var(--gradient-purple);
+    border: none;
+    color: white;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 15px rgba(111, 66, 193, 0.3);
+}
+
+.btn-gradient-purple:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    z-index: -1;
+}
+
+.btn-gradient-purple:hover:before {
+    width: 100%;
+}
+
+.btn-gradient-success {
+    background: var(--gradient-success);
+    border: none;
+    color: white;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 15px rgba(25, 135, 84, 0.3);
+}
+
+.btn-gradient-success:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    z-index: -1;
+}
+
+.btn-gradient-success:hover:before {
+    width: 100%;
+}
+
+.btn-glass {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+    color: white;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.btn-glass:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Modern Cards */
+
+/* Floating Image */
+.floating-image {
+    position: relative;
+    z-index: 4;
+    animation: float 4s ease-in-out infinite;
+    filter: drop-shadow(0 15px 35px rgba(0, 0, 0, 0.3));
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+/* Stats Card */
+.stats-card {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.stats-item {
+    flex: 1;
+    min-width: 120px;
+    padding: 15px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    transition: all 0.3s ease;
+}
+
+.stats-item:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.stats-item .counter {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: white;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.stats-label {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+    display: block;
+}
+
+/* Course Cards */
+.course-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 300px;
+    margin-left: auto;
+}
+
+.mini-card {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.mini-card:hover {
+    transform: translateX(-10px);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.mini-card-icon {
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: white;
+}
+
+.mini-card h5 {
+    margin: 0;
+    color: white;
+    font-weight: 600;
+} 

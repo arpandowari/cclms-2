@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CCLMS - College of Learning & Management Sciences</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    
+    <!-- GLightbox CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox@3.2.0/dist/css/glightbox.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/hero-slider.css">
+    <link rel="stylesheet" href="css/sections.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/course-styles.css">
+    <link rel="stylesheet" href="css/contact-styles.css">
+    <link rel="stylesheet" href="css/gallery.css">
+</head>
+<body>
+    <!-- Debug message to show loading progress -->
+    <div id="debug-message" style="position: fixed; top: 0; left: 0; right: 0; background: #f8d7da; color: #721c24; padding: 10px; z-index: 9999; text-align: center;">
+        Loading... Please wait. If this message persists, check the console for errors.
+        <button onclick="document.getElementById('debug-message').style.display='none';" style="margin-left: 10px; border: none; background: #721c24; color: white; padding: 2px 8px; border-radius: 3px;">Close</button>
+    </div>
+    
+    <!-- Component: Header -->
+    <div id="header-component">
+        <!-- Header content directly in index.html -->
+        <!-- Top Bar -->
+        <div class="top-bar bg-primary text-white py-2">
+            <div class="container d-flex justify-content-between align-items-center">
+                <div class="contact-info d-flex">
+                    <a href="mailto:info@cclms.edu.in" class="text-white me-3"><i class="fas fa-envelope me-1"></i> info@cclms.edu.in</a>
+                    <div class="phone-numbers">
+                        <span class="me-2"><i class="fas fa-phone-alt me-1"></i> +91 8044556677 / +91 9988776655</span>
+                    </div>
+                </div>
+                <div class="social-icons">
+                    <a href="#" class="text-white me-2"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="text-white me-2"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="text-white me-2"><i class="fab fa-youtube"></i></a>
+                    <a href="#" class="text-white"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Header & Navigation -->
+        <header>
+            <div class="container">
+                <div class="row py-3 align-items-center">
+                    <div class="col-md-6">
+                        <div class="d-flex align-items-center">
+                            <img src="cclms/logo.png" alt="CCLMS Logo" class="logo me-3" height="80">
+                            <div>
+                                <h1 class="mb-0 institution-name">College of Learning & Management Sciences</h1>
+                                <p class="mb-0 text-muted small">APPROVED BY AICTE, Affiliated to VTU</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 text-end">
+                        <div class="established-info">
+                            <span class="badge bg-primary">Established in 2011</span>
+                        </div>
+                        <a href="#" class="btn btn-primary mt-2 enroll-btn">ENROLL NOW</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Navigation -->
+            <nav class="navbar navbar-expand-lg navbar-dark bg-primary main-nav">
+                <div class="container">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                        <ul class="navbar-nav">
+                            <li class="nav-item"><a class="nav-link active" href="#hero-banner-component"><i class="fas fa-home me-1"></i> HOME</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#welcome-component"><i class="fas fa-info-circle me-1"></i> ABOUT US</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#courses-component"><i class="fas fa-graduation-cap me-1"></i> COURSES</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#courses-component"><i class="fas fa-user-graduate me-1"></i> ADMISSIONS</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#testimonial-component"><i class="fas fa-users me-1"></i> PLACEMENT</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#gallery-section"><i class="fas fa-images me-1"></i> GALLERY</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#contact-component"><i class="fas fa-phone me-1"></i> CONTACT</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+    </div>
+    
+    <!-- Component: Hero Banner -->
+    <div id="hero-banner-component">
+        <!-- Hero banner content directly in index.html -->
+        <!-- Ultra-Modern Hero Slider Section -->
+        <section class="hero-slider position-relative">
+            <div class="animated-bg"></div>
+            
+            <div id="heroSlider" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#heroSlider" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#heroSlider" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#heroSlider" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="overlay"></div>
+                        <img src="cclms/slider_1.png" class="d-block w-100" alt="CCLMS Slider Image 1">
+                        <div class="carousel-caption d-flex h-100">
+                            <div class="container position-relative">
+                                <div class="row align-items-center">
+                                    <div class="col-md-6 text-start">
+                                        <div class="content-wrapper animate__animated animate__fadeInLeft">
+                                            <span class="badge-modern">Admission Open 2025-26</span>
+                                            <h1 class="fw-bold display-4">Your Journey to <span class="gradient-text">Expertise</span></h1>
+                                            <h2 class="fw-light mb-4">Starts Here</h2>
+                                            <p class="lead mb-4">Empower yourself with knowledge and skills for a successful future.</p>
+                                            <div class="d-flex gap-3">
+                                                <a href="#" class="btn btn-gradient btn-lg rounded-pill">
+                                                    <span>Explore Programs</span>
+                                                    <i class="fas fa-arrow-right ms-2"></i>
+                                                </a>
+                                                <a href="#" class="btn btn-glass btn-lg rounded-pill">
+                                                    <span>Contact Us</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 d-none d-md-block">
+                                        <div class="floating-image animate__animated animate__fadeInUp animate__delay-1s">
+                                            <img src="cclms/slider_1.png" alt="CCLMS " class="img-fluid">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="overlay overlay-blue"></div>
+                        <img src="cclms/college_slider.png" class="d-block w-100" alt="CCLMS Slider Image 2">
+                        <div class="carousel-caption d-flex h-100">
+                            <div class="container position-relative">
+                                <div class="row align-items-center">
+                                    <div class="col-md-6 text-start">
+                                        <div class="content-wrapper animate__animated animate__fadeInUp">
+                                            <span class="badge-modern badge-success">AICTE Approved</span>
+                                            <h1 class="fw-bold display-4">Excellence in <span class="gradient-text-blue">Education</span></h1>
+                                            <h2 class="fw-light mb-4">VTU Affiliated Institute</h2>
+                                            <p class="lead mb-4">Our institute provides quality technical education with industry exposure.</p>
+                                            <div class="d-flex gap-3">
+                                                <a href="#" class="btn btn-warning btn-lg rounded-pill">
+                                                    <span>Admission Open</span>
+                                                    <i class="fas fa-graduation-cap ms-2"></i>
+                                                </a>
+                                                <a href="#" class="btn btn-glass btn-lg rounded-pill">
+                                                    <span>Learn More</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 d-none d-md-block">
+                                        <div class="stats-card animate__animated animate__fadeInRight animate__delay-1s">
+                                            <div class="stats-item">
+                                                <span class="counter">12</span>
+                                                <span class="stats-label">Years of Excellence</span>
+                                            </div>
+                                            <div class="stats-item">
+                                                <span class="counter">95</span><span>%</span>
+                                                <span class="stats-label">Placement Rate</span>
+                                            </div>
+                                            <div class="stats-item">
+                                                <span class="counter">50</span><span>+</span>
+                                                <span class="stats-label">Corporate Partners</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="overlay overlay-gradient"></div>
+                        <img src="cclms/bg-cclms.jpg" class="d-block w-100" alt="CCLMS Slider Image 3">
+                        <div class="carousel-caption d-flex h-100">
+                            <div class="container position-relative">
+                                <div class="row align-items-center">
+                                    <div class="col-md-7 ms-auto text-start">
+                                        <div class="content-wrapper animate__animated animate__fadeInRight">
+                                            <span class="badge-modern badge-purple">Industry Focused</span>
+                                            <h1 class="fw-bold display-4">Build Your <span class="gradient-text-purple">Future</span></h1>
+                                            <h2 class="fw-light mb-4">With Cutting-Edge Programs</h2>
+                                            <p class="lead mb-4">BBA in Hospital Management, BCA, B.Sc in Hospitality and more.</p>
+                                            <div class="d-flex gap-3">
+                                                <a href="#" class="btn btn-gradient-purple btn-lg rounded-pill">
+                                                    <span>Register Now</span>
+                                                    <i class="fas fa-user-plus ms-2"></i>
+                                                </a>
+                                                <a href="#" class="btn btn-glass btn-lg rounded-pill">
+                                                    <span>View Courses</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-5 d-none d-md-block">
+                                        <div class="course-cards animate__animated animate__fadeInLeft animate__delay-1s">
+                                            <div class="mini-card">
+                                                <div class="mini-card-icon">
+                                                    <i class="fas fa-laptop-code"></i>
+                                                </div>
+                                                <h5>BCA</h5>
+                                            </div>
+                                            <div class="mini-card">
+                                                <div class="mini-card-icon">
+                                                    <i class="fas fa-hospital"></i>
+                                                </div>
+                                                <h5>BBA</h5>
+                                            </div>
+                                            <div class="mini-card">
+                                                <div class="mini-card-icon">
+                                                    <i class="fas fa-concierge-bell"></i>
+                                                </div>
+                                                <h5>B.Sc</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#heroSlider" data-bs-slide="prev">
+                    <div class="control-circle">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    </div>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#heroSlider" data-bs-slide="next">
+                    <div class="control-circle">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    </div>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </section>
+    </div>
+    
+    <!-- Component: Welcome Section -->
+    <div id="welcome-component">
+        <div class="fallback-content" style="padding: 20px; text-align: center; background: #f8f9fa;">
+            <h2>Welcome Component</h2>
+            <p>If you're seeing this, the welcome component failed to load.</p>
+        </div>
+    </div>
+    
+    <!-- Component: Courses Section -->
+    <div id="courses-component">
+        <div class="fallback-content" style="padding: 20px; text-align: center; background: #e9ecef;">
+            <h2>Courses Component</h2>
+            <p>If you're seeing this, the courses component failed to load.</p>
+        </div>
+    </div>
+    
+    <!-- Component: Testimonial Section -->
+    <div id="testimonial-component">
+        <div class="fallback-content" style="padding: 20px; text-align: center; background: #f8f9fa;">
+            <h2>Testimonial Component</h2>
+            <p>If you're seeing this, the testimonial component failed to load.</p>
+        </div>
+    </div>
+    
+    <!-- Component: Gallery Section -->
+    <div id="gallery-section">
+        <div class="gallery-preloader">
+            <div class="spinner"></div>
+            <h3>Loading Gallery...</h3>
+            <p>Please wait while we prepare the images</p>
+        </div>
+    </div>
+    
+    <!-- Component: Contact Section -->
+    <div id="contact-component">
+        <div class="fallback-content" style="padding: 20px; text-align: center; background: #f8f9fa;">
+            <h2>Contact Component</h2>
+            <p>If you're seeing this, the contact component failed to load.</p>
+        </div>
+    </div>
+    
+    <!-- Component: Footer -->
+    <div id="footer-component">
+        <div class="fallback-content" style="padding: 20px; text-align: center; background: #e9ecef;">
+            <h2>Footer Component</h2>
+            <p>If you're seeing this, the footer component failed to load.</p>
+        </div>
+    </div>
+
+    <!-- Floating Admission Card - Direct in body for guaranteed visibility -->
+    <div class="admission-card glass-card">
+        <div class="card-glow"></div>
+        <div class="card-close" id="closeAdmissionCard">
+            <i class="fas fa-times"></i>
+        </div>
+        <div class="card-content">
+            <div class="card-header">
+                <h3 class="fw-bold m-0">ADMISSION OPEN</h3>
+                <div class="pulse-dot"></div>
+            </div>
+            <div class="card-body">
+                <div class="programs-list">
+                    <div class="program-item">
+                        <span class="badge rounded-pill">NEW</span>
+                        <span>BBA in Hospital Management</span>
+                    </div>
+                    <div class="program-item">
+                        <span>Bachelor in Computer Application (BCA)</span>
+                    </div>
+                    <div class="program-item">
+                        <span>B.Sc in Hospitality and Hotel Administration</span>
+                    </div>
+                </div>
+                <a href="#" class="btn btn-gradient-success btn-lg w-100 mt-3 rounded-pill">
+                    <span>Apply Now</span>
+                    <i class="fas fa-paper-plane ms-2"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+
+    <!-- Component JavaScript Files -->
+    <script src="js/components/hero-slider.js"></script>
+    <script src="js/components/admission-card.js"></script>
+    <script src="js/components/back-to-top.js"></script>
+    <script src="js/components/navigation.js"></script>
+    <script src="js/components/courses.js"></script>
+    <script src="js/components/testimonials.js"></script>
+    <script src="js/components/utils.js"></script>
+    <script src="js/components/welcome.js"></script>
+    <script src="js/components/contact.js"></script>
+    <script src="js/components/gallery.js"></script>
+
+    <!-- Main JavaScript File -->
+    <script src="js/main.js"></script>
+
+    <!-- Gallery Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/isotope-layout@3.0.6/dist/isotope.pkgd.min.js"></script>
+    <script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/glightbox@3.2.0/dist/js/glightbox.min.js"></script>
+    
+    <!-- Gallery Fix Script -->
+    <script src="js/gallery-fix.js"></script>
+    
+    <!-- New Static Component Loader Script -->
+    <script>
+        $(document).ready(function() {
+            console.log("Static component loading approach started");
+            
+            // These components are already included directly in the HTML
+            console.log('Header component already loaded directly in HTML');
+            console.log('Hero banner component already loaded directly in HTML');
+            
+            // Only load the remaining components
+            fetch('components/welcome.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('welcome-component').innerHTML = data;
+                    console.log('Welcome component loaded');
+                    
+                    // Initialize welcome section right after loading
+                    if (typeof WelcomeSection !== 'undefined') {
+                        console.log("Initializing WelcomeSection immediately after load");
+                        setTimeout(() => WelcomeSection.init(), 200);
+                    } else {
+                        console.error('WelcomeSection component not available');
+                    }
+                })
+                .catch(error => console.error('Error loading welcome section:', error));
+                
+            fetch('components/courses.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('courses-component').innerHTML = data;
+                    console.log('Courses component loaded');
+                })
+                .catch(error => console.error('Error loading courses section:', error));
+                
+            fetch('components/testimonial.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('testimonial-component').innerHTML = data;
+                    console.log('Testimonial component loaded');
+                })
+                .catch(error => console.error('Error loading testimonial section:', error));
+                
+            fetch('components/gallery.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('gallery-section').innerHTML = data;
+                    console.log('Gallery component loaded');
+                    
+                    // Initialize gallery using the Gallery component
+                    if (typeof Gallery !== 'undefined') {
+                        Gallery.init();
+                    } else {
+                        console.error('Gallery component not available');
+                    }
+                })
+                .catch(error => console.error('Error loading gallery section:', error));
+                
+            fetch('components/contact.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('contact-component').innerHTML = data;
+                    console.log('Contact component loaded');
+                })
+                .catch(error => console.error('Error loading contact section:', error));
+                
+            fetch('components/footer.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('footer-component').innerHTML = data;
+                    console.log('Footer component loaded');
+                })
+                .catch(error => console.error('Error loading footer:', error));
+            
+            // Hide debug message after a delay to allow components to load
+            setTimeout(function() {
+                console.log("Component loading time elapsed, hiding debug message");
+                $("#debug-message").fadeOut();
+                
+                // Initialize all components after loading
+                setTimeout(() => {
+                    if (typeof HeroSlider !== 'undefined') {
+                        console.log("Initializing HeroSlider from loader");
+                        HeroSlider.init();
+                    }
+                    if (typeof AdmissionCard !== 'undefined') AdmissionCard.init();
+                    if (typeof Navigation !== 'undefined') Navigation.init();
+                    if (typeof Courses !== 'undefined') Courses.init();
+                    if (typeof Testimonials !== 'undefined') Testimonials.init();
+                    if (typeof Gallery !== 'undefined') Gallery.init();
+                    if (typeof Utils !== 'undefined') Utils.init();
+                    console.log("Components initialized after loading");
+                }, 500);
+            }, 3000);
+            
+            // Ensure the admission card is available right away
+            $('.glass-card').removeClass('hidden');
+        });
+    </script>
+</body>
+</html> 

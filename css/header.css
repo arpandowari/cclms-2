@@ -1,0 +1,121 @@
+/* Header Styles */
+.institution-name {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+.enroll-btn {
+    font-weight: 700;
+    padding: 10px 25px;
+    border-radius: 50px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.navbar {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 0;
+}
+
+.main-nav {
+    background-color: #0d6efd !important;
+    transition: all 0.3s ease;
+}
+
+/* Modern sticky navbar styles */
+.navbar-scrolled {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1030;
+    background-color: rgba(13, 110, 253, 0.95) !important;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    padding: 0.5rem 1rem;
+    animation: slideDown 0.5s ease;
+}
+
+.top-bar {
+    transition: all 0.3s ease;
+}
+
+.top-bar-hidden {
+    transform: translateY(-100%);
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+.navbar-nav .nav-link {
+    font-weight: 600;
+    padding: 0.8rem 1.2rem;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    color: #fff;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.navbar-scrolled .nav-link {
+    padding: 0.7rem 1.2rem;
+}
+
+.navbar-nav .nav-link:hover, 
+.navbar-nav .nav-link.active {
+    color: var(--light-color);
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Notification Bar */
+.notification-bar {
+    border-bottom: 1px solid #e9ecef;
+    background-color: #f8f9fa;
+}
+
+.admission-notice {
+    font-weight: 700;
+    font-size: 0.9rem;
+    border-radius: 4px;
+    background-color: #dc3545;
+    color: white;
+    padding: 4px 8px;
+    display: inline-block;
+}
+
+/* Fix spacing when navbar becomes fixed */
+body {
+    padding-top: 0;
+    transition: padding-top 0.3s ease;
+}
+
+body.scrolled {
+    padding-top: 56px; /* Adjust based on your navbar height */
+}
+
+/* Logo and brand transition */
+.logo {
+    height: 80px;
+    transition: all 0.3s ease;
+}
+
+.navbar-scrolled .logo {
+    height: 50px;
+}
+
+.navbar-scrolled .institution-name {
+    font-size: 1.2rem;
+}
+
+/* Add a gradient highlight for the active link in scrolled mode */
+.navbar-scrolled .nav-link.active {
+    background: linear-gradient(45deg, rgba(255,255,255,0.15), rgba(255,255,255,0.05));
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+} 
