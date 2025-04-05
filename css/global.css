@@ -1,6 +1,6 @@
 /* Global Styles */
 :root {
-    --primary-color: #0d6efd;
+    --primary-color: rgb(13, 110, 253);
     --primary-dark: #0a58ca;
     --secondary-color: #6c757d;
     --danger-color: #dc3545;
@@ -315,5 +315,132 @@ a {
     100% {
         transform: scale(4);
         opacity: 0;
+    }
+}
+
+/* 
+ * RESPONSIVE STYLES
+ * Media queries for different screen sizes
+ */
+
+/* Extra small devices (phones, 576px and down) */
+@media (max-width: 576px) {
+    body {
+        font-size: 14px;
+    }
+    
+    h1 {
+        font-size: 1.8rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+    
+    h3 {
+        font-size: 1.3rem;
+    }
+    
+    .container {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    
+    .section-title {
+        font-size: 1.6rem;
+    }
+    
+    .back-to-top {
+        right: 15px;
+        bottom: 15px;
+        width: 40px;
+        height: 40px;
+    }
+    
+    /* Adjust cards to take full width on mobile */
+    .card-3d {
+        width: 100% !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+    
+    /* Force columns to stack vertically */
+    [class*="col-"] {
+        width: 100% !important;
+        flex: 0 0 100% !important;
+        max-width: 100% !important;
+    }
+    
+    /* Reduce padding/margins */
+    .row {
+        margin-left: -10px !important;
+        margin-right: -10px !important;
+    }
+    
+    .col, [class*="col-"] {
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+    }
+    
+    /* Adjust spacing */
+    section {
+        padding: 40px 0 !important;
+    }
+}
+
+/* Small devices (landscape phones, 576px to 767px) */
+@media (min-width: 577px) and (max-width: 767px) {
+    h1 {
+        font-size: 2rem;
+    }
+    
+    h2 {
+        font-size: 1.7rem;
+    }
+    
+    /* Adjust columns for small devices */
+    .col-sm-6 {
+        width: 50% !important;
+        flex: 0 0 50% !important;
+        max-width: 50% !important;
+    }
+    
+    /* But keep full width for other columns */
+    .col-sm-12 {
+        width: 100% !important;
+        flex: 0 0 100% !important;
+        max-width: 100% !important;
+    }
+    
+    section {
+        padding: 50px 0 !important;
+    }
+}
+
+/* Medium devices (tablets, 768px to 991px) */
+@media (min-width: 768px) and (max-width: 991px) {
+    /* Adjust spacing */
+    section {
+        padding: 60px 0 !important;
+    }
+    
+    /* Two-column layout for cards */
+    .card-container .col-md-4 {
+        width: 50% !important;
+        flex: 0 0 50% !important;
+        max-width: 50% !important;
+    }
+}
+
+/* Large devices (desktops, 992px to 1199px) */
+@media (min-width: 992px) and (max-width: 1199px) {
+    /* Default desktop styles */
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    /* Large desktop styles */
+    .container {
+        max-width: 1140px;
     }
 } 

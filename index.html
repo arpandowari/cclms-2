@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8">  
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CCLMS - College of Learning & Management Sciences</title>
+    <!-- fav icon -->
+    <link rel="icon" href="cclms/logo.png" type="images">
     
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -27,6 +29,7 @@
     <link rel="stylesheet" href="css/course-styles.css">
     <link rel="stylesheet" href="css/contact-styles.css">
     <link rel="stylesheet" href="css/gallery.css">
+    <link rel="stylesheet" href="css/page-loader.css">
 </head>
 <body>
     <!-- Debug message to show loading progress -->
@@ -42,9 +45,9 @@
         <div class="top-bar bg-primary text-white py-2">
             <div class="container d-flex justify-content-between align-items-center">
                 <div class="contact-info d-flex">
-                    <a href="mailto:info@cclms.edu.in" class="text-white me-3"><i class="fas fa-envelope me-1"></i> info@cclms.edu.in</a>
+                    <a href="mailto:admin@cclms.org" class="text-white me-3"><i class="fas fa-envelope me-1"></i> admin@cclms.org</a>
                     <div class="phone-numbers">
-                        <span class="me-2"><i class="fas fa-phone-alt me-1"></i> +91 8044556677 / +91 9988776655</span>
+                        <span class="me-2"><i class="fas fa-phone-alt me-1"></i> 07797147090 / 08373084200</span>
                     </div>
                 </div>
                 <div class="social-icons">
@@ -65,7 +68,7 @@
                             <img src="cclms/logo.png" alt="CCLMS Logo" class="logo me-3" height="80">
                             <div>
                                 <h1 class="mb-0 institution-name">College of Learning & Management Sciences</h1>
-                                <p class="mb-0 text-muted small">APPROVED BY AICTE, Affiliated to VTU</p>
+                                <p class="mb-0 text-muted small">Affiliated to: MAKAUT, College Code: 340</p>
                             </div>
                         </div>
                     </div>
@@ -99,6 +102,9 @@
             </nav>
         </header>
     </div>
+    
+    <!-- Wrap main content in a main tag for proper flexbox layout -->
+    <main>
     
     <!-- Component: Hero Banner -->
     <div id="hero-banner-component">
@@ -148,7 +154,7 @@
                     </div>
                     <div class="carousel-item">
                         <div class="overlay overlay-blue"></div>
-                        <img src="cclms/college_slider.png" class="d-block w-100" alt="CCLMS Slider Image 2">
+                        <img src="cclms/college_front_1.jpg" class="d-block w-100" alt="CCLMS Slider Image 2">
                         <div class="carousel-caption d-flex h-100">
                             <div class="container position-relative">
                                 <div class="row align-items-center">
@@ -191,7 +197,7 @@
                     </div>
                     <div class="carousel-item">
                         <div class="overlay overlay-gradient"></div>
-                        <img src="cclms/bg-cclms.jpg" class="d-block w-100" alt="CCLMS Slider Image 3">
+                        <img src="cclms/slider_3.jpg" class="d-block w-100" alt="CCLMS Slider Image 3">
                         <div class="carousel-caption d-flex h-100">
                             <div class="container position-relative">
                                 <div class="row align-items-center">
@@ -296,6 +302,8 @@
         </div>
     </div>
     
+    </main>
+    
     <!-- Component: Footer -->
     <div id="footer-component">
         <div class="fallback-content" style="padding: 20px; text-align: center; background: #e9ecef;">
@@ -336,12 +344,15 @@
         </div>
     </div>
 
-    <!-- JavaScript Libraries -->
+    <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
 
     <!-- Component JavaScript Files -->
+    <!-- Page Loader Component - Loaded first -->
+    <script src="js/components/page-loader.js"></script>
+    
     <script src="js/components/hero-slider.js"></script>
     <script src="js/components/admission-card.js"></script>
     <script src="js/components/back-to-top.js"></script>
@@ -367,99 +378,120 @@
     <!-- New Static Component Loader Script -->
     <script>
         $(document).ready(function() {
+            // Initialize page loader
+            if (typeof PageLoader !== 'undefined') {
+                console.log("Initializing page loader");
+                PageLoader.init();
+            }
+            
             console.log("Static component loading approach started");
             
-            // These components are already included directly in the HTML
-            console.log('Header component already loaded directly in HTML');
-            console.log('Hero banner component already loaded directly in HTML');
-            
-            // Only load the remaining components
+            // Load welcome component
             fetch('components/welcome.html')
                 .then(response => response.text())
                 .then(data => {
                     document.getElementById('welcome-component').innerHTML = data;
                     console.log('Welcome component loaded');
-                    
-                    // Initialize welcome section right after loading
-                    if (typeof WelcomeSection !== 'undefined') {
-                        console.log("Initializing WelcomeSection immediately after load");
-                        setTimeout(() => WelcomeSection.init(), 200);
-                    } else {
-                        console.error('WelcomeSection component not available');
-                    }
                 })
                 .catch(error => console.error('Error loading welcome section:', error));
                 
-            fetch('components/courses.html')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('courses-component').innerHTML = data;
-                    console.log('Courses component loaded');
-                })
-                .catch(error => console.error('Error loading courses section:', error));
-                
-            fetch('components/testimonial.html')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('testimonial-component').innerHTML = data;
-                    console.log('Testimonial component loaded');
-                })
-                .catch(error => console.error('Error loading testimonial section:', error));
-                
-            fetch('components/gallery.html')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('gallery-section').innerHTML = data;
-                    console.log('Gallery component loaded');
-                    
-                    // Initialize gallery using the Gallery component
-                    if (typeof Gallery !== 'undefined') {
-                        Gallery.init();
-                    } else {
-                        console.error('Gallery component not available');
-                    }
-                })
-                .catch(error => console.error('Error loading gallery section:', error));
-                
-            fetch('components/contact.html')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('contact-component').innerHTML = data;
-                    console.log('Contact component loaded');
-                })
-                .catch(error => console.error('Error loading contact section:', error));
-                
-            fetch('components/footer.html')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('footer-component').innerHTML = data;
-                    console.log('Footer component loaded');
-                })
-                .catch(error => console.error('Error loading footer:', error));
-            
-            // Hide debug message after a delay to allow components to load
+            // Load all components after delay to allow loader to show
             setTimeout(function() {
-                console.log("Component loading time elapsed, hiding debug message");
-                $("#debug-message").fadeOut();
+                // Load header component
+                console.log("Static component loading approach started");
                 
-                // Initialize all components after loading
-                setTimeout(() => {
-                    if (typeof HeroSlider !== 'undefined') {
-                        console.log("Initializing HeroSlider from loader");
-                        HeroSlider.init();
-                    }
-                    if (typeof AdmissionCard !== 'undefined') AdmissionCard.init();
-                    if (typeof Navigation !== 'undefined') Navigation.init();
-                    if (typeof Courses !== 'undefined') Courses.init();
-                    if (typeof Testimonials !== 'undefined') Testimonials.init();
-                    if (typeof Gallery !== 'undefined') Gallery.init();
-                    if (typeof Utils !== 'undefined') Utils.init();
-                    console.log("Components initialized after loading");
-                }, 500);
+                // These components are already included directly in the HTML
+                console.log('Header component already loaded directly in HTML');
+                console.log('Hero banner component already loaded directly in HTML');
+                
+                // Only load the remaining components
+                fetch('components/welcome.html')
+                    .then(response => response.text())
+                    .then(data => {
+                        document.getElementById('welcome-component').innerHTML = data;
+                        console.log('Welcome component loaded');
+                        
+                        // Initialize welcome section right after loading
+                        if (typeof WelcomeSection !== 'undefined') {
+                            console.log("Initializing WelcomeSection immediately after load");
+                            setTimeout(() => WelcomeSection.init(), 200);
+                        } else {
+                            console.error('WelcomeSection component not available');
+                        }
+                    })
+                    .catch(error => console.error('Error loading welcome section:', error));
+                    
+                fetch('components/courses.html')
+                    .then(response => response.text())
+                    .then(data => {
+                        document.getElementById('courses-component').innerHTML = data;
+                        console.log('Courses component loaded');
+                    })
+                    .catch(error => console.error('Error loading courses section:', error));
+                    
+                fetch('components/testimonial.html')
+                    .then(response => response.text())
+                    .then(data => {
+                        document.getElementById('testimonial-component').innerHTML = data;
+                        console.log('Testimonial component loaded');
+                    })
+                    .catch(error => console.error('Error loading testimonial section:', error));
+                    
+                fetch('components/gallery.html')
+                    .then(response => response.text())
+                    .then(data => {
+                        document.getElementById('gallery-section').innerHTML = data;
+                        console.log('Gallery component loaded');
+                        
+                        // Initialize gallery using the Gallery component
+                        if (typeof Gallery !== 'undefined') {
+                            Gallery.init();
+                        } else {
+                            console.error('Gallery component not available');
+                        }
+                    })
+                    .catch(error => console.error('Error loading gallery section:', error));
+                    
+                fetch('components/contact.html')
+                    .then(response => response.text())
+                    .then(data => {
+                        document.getElementById('contact-component').innerHTML = data;
+                        console.log('Contact component loaded');
+                    })
+                    .catch(error => console.error('Error loading contact section:', error));
+                    
+                fetch('components/footer.html')
+                    .then(response => response.text())
+                    .then(data => {
+                        document.getElementById('footer-component').innerHTML = data;
+                        console.log('Footer component loaded');
+                    })
+                    .catch(error => console.error('Error loading footer:', error));
+                
+                // Hide debug message after a delay to allow components to load
+                setTimeout(function() {
+                    console.log("Component loading time elapsed, hiding debug message");
+                    $("#debug-message").fadeOut();
+                    
+                    // Initialize all components after loading
+                    setTimeout(() => {
+                        if (typeof HeroSlider !== 'undefined') {
+                            console.log("Initializing HeroSlider from loader");
+                            HeroSlider.init();
+                        }
+                        if (typeof AdmissionCard !== 'undefined') AdmissionCard.init();
+                        if (typeof Navigation !== 'undefined') Navigation.init();
+                        if (typeof Courses !== 'undefined') Courses.init();
+                        if (typeof Testimonials !== 'undefined') Testimonials.init();
+                        if (typeof Gallery !== 'undefined') Gallery.init();
+                        if (typeof Utils !== 'undefined') Utils.init();
+                        console.log("Components initialized after loading");
+                    }, 500);
+                }, 3000);
+                
+                // Ensure the admission card is available right away
+                $('.glass-card').removeClass('hidden');
             }, 3000);
-            
-            // Ensure the admission card is available right away
-            $('.glass-card').removeClass('hidden');
         });
     </script>
 </body>

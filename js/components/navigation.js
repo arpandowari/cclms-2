@@ -4,57 +4,73 @@
  */
 const Navigation = {
     init: function() {
-        // Navbar active class toggle on click
-        $('.navbar-nav .nav-link').on('click', function() {
-            $('.navbar-nav .nav-link').removeClass('active');
-            $(this).addClass('active');
-        });
+        // Cache DOM elements for better performance
+        this.$navbar = $('.navbar-nav');
+        this.$navLinks = $('.navbar-nav .nav-link');
+        this.$mainNav = $('.main-nav');
+        this.$topBar = $('.top-bar');
+        this.$body = $('body');
 
-        // Enhanced smooth scrolling for all anchor links
-        $('.navbar-nav .nav-link[href*="#"]').on('click', function(e) {
+        // Single delegated event handler for all nav links
+        this.$navbar.on('click', '.nav-link', this.handleNavClick.bind(this));
+        
+        // Modern sticky navbar on scroll with throttling
+        $(window).on('scroll', this.throttle(this.handleScroll.bind(this), 10));
+        
+        // Initialize the active nav based on initial scroll position
+        this.updateActiveNavOnScroll();
+    },
+
+    // Handle all navigation click events in one handler
+    handleNavClick: function(e) {
+        const $clickedLink = $(e.currentTarget);
+        
+        // Only process hash links
+        if ($clickedLink.attr('href').includes('#')) {
             e.preventDefault();
-            const targetId = this.getAttribute('href').split('#')[1];
-            const target = $('#' + targetId);
             
-            if (target.length) {
+            // Remove active class from all links and add to clicked link
+            this.$navLinks.removeClass('active');
+            $clickedLink.addClass('active');
+            
+            // Get target section
+            const targetId = $clickedLink.attr('href').split('#')[1];
+            const $target = $('#' + targetId);
+            
+            if ($target.length) {
                 // Calculate header height for proper offset
                 const headerHeight = $('.navbar').outerHeight() + 20;
                 
+                // Immediately hide mobile menu if open
+                $('.navbar-collapse').collapse('hide');
+                
+                // Perform smooth scroll with better performance
                 $('html, body').animate({
-                    scrollTop: target.offset().top - headerHeight
-                }, 800, function() {
-                    // Callback after animation - update hash
-                    window.location.hash = targetId;
+                    scrollTop: $target.offset().top - headerHeight
+                }, 500, function() {
+                    // Update URL hash after animation completes
+                    window.history.pushState(null, null, '#' + targetId);
                 });
             }
-        });
+        }
+    },
+    
+    // Handle scroll events with improved performance
+    handleScroll: function() {
+        const scrollPosition = $(window).scrollTop();
         
-        // Mobile menu collapse after click
-        $('.navbar-nav>li>a').on('click', function(){
-            $('.navbar-collapse').collapse('hide');
-        });
+        // Sticky navbar logic
+        if (scrollPosition > 100) {
+            this.$mainNav.addClass('navbar-scrolled');
+            this.$topBar.addClass('top-bar-hidden');
+            this.$body.addClass('scrolled');
+        } else {
+            this.$mainNav.removeClass('navbar-scrolled');
+            this.$topBar.removeClass('top-bar-hidden');
+            this.$body.removeClass('scrolled');
+        }
         
-        // Modern sticky navbar on scroll
-        $(window).on('scroll', function() {
-            if ($(window).scrollTop() > 100) {
-                $('.main-nav').addClass('navbar-scrolled');
-                // Hide top bar on scroll
-                $('.top-bar').addClass('top-bar-hidden');
-                // Add scrolled class to body for spacing
-                $('body').addClass('scrolled');
-            } else {
-                $('.main-nav').removeClass('navbar-scrolled');
-                // Show top bar when back at top
-                $('.top-bar').removeClass('top-bar-hidden');
-                // Remove scrolled class from body
-                $('body').removeClass('scrolled');
-            }
-            
-            // Update active nav link on scroll
-            this.updateActiveNavOnScroll();
-        }.bind(this));
-        
-        // Initialize the active nav based on initial scroll position
+        // Update active nav link on scroll
         this.updateActiveNavOnScroll();
     },
     
@@ -65,23 +81,34 @@ const Navigation = {
         // Check each section and update nav accordingly
         $('section, div[id$="-component"], div[id$="-section"]').each(function() {
             const currentSection = $(this);
-            const sectionTop = currentSection.offset().top;
-            const sectionBottom = sectionTop + currentSection.outerHeight();
             const sectionId = currentSection.attr('id');
             
             // If no ID or not a main section, skip
             if (!sectionId) return;
+            
+            const sectionTop = currentSection.offset().top;
+            const sectionBottom = sectionTop + currentSection.outerHeight();
             
             // Check if we're currently scrolled to this section
             if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
                 $('.navbar-nav .nav-link').removeClass('active');
                 
                 // Find links that point to this section and activate them
-                const $navLinks = $('.navbar-nav .nav-link[href*="#' + sectionId + '"]');
-                if ($navLinks.length) {
-                    $navLinks.addClass('active');
-                }
+                $('.navbar-nav .nav-link[href*="#' + sectionId + '"]').addClass('active');
             }
         });
+    },
+    
+    // Throttle function to limit execution frequency
+    throttle: function(func, delay) {
+        let lastCall = 0;
+        return function() {
+            const now = new Date().getTime();
+            if (now - lastCall < delay) {
+                return;
+            }
+            lastCall = now;
+            return func.apply(this, arguments);
+        };
     }
 }; 

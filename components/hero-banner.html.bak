@@ -44,7 +44,7 @@
             </div>
             <div class="carousel-item">
                 <div class="overlay overlay-blue"></div>
-                <img src="cclms/college_slider.png" class="d-block w-100" alt="CCLMS Slider Image 2">
+                <img src="cclms/college_front_1.jpg" class="d-block w-100" alt="CCLMS Slider Image 2">
                 <div class="carousel-caption d-flex h-100">
                     <div class="container position-relative">
                         <div class="row align-items-center">
@@ -87,7 +87,7 @@
             </div>
             <div class="carousel-item">
                 <div class="overlay overlay-gradient"></div>
-                <img src="cclms/bg-cclms.jpg" class="d-block w-100" alt="CCLMS Slider Image 3">
+                <img src="cclms/slider_3.jpg" class="d-block w-100" alt="CCLMS Slider Image 3">
                 <div class="carousel-caption d-flex h-100">
                     <div class="container position-relative">
                         <div class="row align-items-center">
